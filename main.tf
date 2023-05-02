@@ -8,4 +8,4 @@ resource "random_integer" "number" {
 
 output "random_number" {
     value = random_integer.number.id
-  }
+}
