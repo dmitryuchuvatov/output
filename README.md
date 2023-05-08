@@ -61,24 +61,11 @@ terraform apply
 Enter **yes** and hit **Enter** to apply the changes:
 
 ```
-Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
-symbols:
-  + create
-
-Terraform will perform the following actions:
-
-  # random_integer.number will be created
-  + resource "random_integer" "number" {
-      + id     = (known after apply)
-      + max    = 4999
-      + min    = 1
-      + result = (known after apply)
-    }
-
-Plan: 1 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
-  + random_number = (known after apply)
+  + myrandom = "hello"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
@@ -86,14 +73,12 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-random_integer.number: Creating...
-random_integer.number: Creation complete after 0s [id=3235]
 
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-random_number = "3235"
+myrandom = "hello"
 ```
 ## Clean Up
 
@@ -103,12 +88,17 @@ terraform destroy
 When prompted, enter **yes** and hit **Enter** to destroy the resources:
 
 ```
-...
+Changes to Outputs:
+  - myrandom = "hello" -> null
 
-random_integer.number: Destroying... [id=3235]
-random_integer.number: Destruction complete after 0s
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
 
-Destroy complete! Resources: 1 destroyed.
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+
+Destroy complete! Resources: 0 destroyed.
 ```
-
-
